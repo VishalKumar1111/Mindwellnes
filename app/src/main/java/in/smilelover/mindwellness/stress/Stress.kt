@@ -1,6 +1,7 @@
 package `in`.smilelover.mindwellness.stress
 
 import `in`.smilelover.mindwellness.R
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -72,10 +73,15 @@ class Stress:AppCompatActivity() {
         val button3:Button=findViewById(R.id.button3)
 
         questionNo += 1
-        textView.text = questions[questionNo]
+        textView?.text = questions[questionNo]
         button2.text = optnB[questionNo]
         button3.text = optnc[questionNo]
         button.text = optnA[questionNo]
+
+        if (questionNo==3){
+            val intent=Intent(this,Gauge::class.java)
+            startActivity(intent)
+        }
     }
 
 
