@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -29,6 +30,7 @@
         app:columnCount="2">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/stress_s"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
