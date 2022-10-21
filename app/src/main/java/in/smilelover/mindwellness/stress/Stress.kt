@@ -20,7 +20,7 @@ class Stress:AppCompatActivity() {
     private var optnA= listOf("A)Kotlin and Java","A)void" ,"A)To contain data","A)Software Development Kit")
     private var optnB= listOf("B)Java and Python","B)var","B) To insert a random value","B) Software Development Kotlin")
     private var optnc= listOf("C) Kotlin and Python","C) function","C) Don't know","C) Something Don't Know")
-    var rightAnswers = listOf(1, 2, 1, 1)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +42,6 @@ class Stress:AppCompatActivity() {
             showToast(3)
         }
 
-        //Toast.makeText(this,"score: $score",Toast.LENGTH_SHORT).show()
     }
 
 
@@ -51,18 +50,15 @@ class Stress:AppCompatActivity() {
             1->{
                 updateQuestion()
                 score+=10
-                Toast.makeText(this,"score: $score",Toast.LENGTH_SHORT).show()
             } 2->{
                 updateQuestion()
                 score+=15
-                Toast.makeText(this,"score: $score",Toast.LENGTH_SHORT).show()
             } 3->{
                 updateQuestion()
                 score+=20
-                Toast.makeText(this,"score: $score",Toast.LENGTH_SHORT).show()
             }
         }
-
+        val toscore=score
 
     }
 
@@ -73,14 +69,18 @@ class Stress:AppCompatActivity() {
         val button3:Button=findViewById(R.id.button3)
 
         questionNo += 1
-        textView?.text = questions[questionNo]
+        textView.text = questions[questionNo]
         button2.text = optnB[questionNo]
         button3.text = optnc[questionNo]
         button.text = optnA[questionNo]
 
         if (questionNo==3){
             val intent=Intent(this,Gauge::class.java)
+                .putExtra("Score",score)
             startActivity(intent)
+            Toast.makeText(this,"$score",Toast.LENGTH_SHORT).show()
+
+
         }
     }
 
